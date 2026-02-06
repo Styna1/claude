@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Agar.io Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Main Menu Overlay -->
+    <div id="menuOverlay" class="overlay">
+        <div class="menu-container">
+            <h1 class="game-title">🟢 Agar.io</h1>
+
+            <div id="authStatus" class="auth-status"></div>
+
+            <input type="text" id="playerName" placeholder="Enter your name..." maxlength="20" class="name-input">
+
+            <button id="playBtn" class="btn btn-play">▶ Play</button>
+
+            <div class="auth-section">
+                <div id="loginForm" class="auth-form">
+                    <h3>Account</h3>
+                    <input type="text" id="authUsername" placeholder="Username" maxlength="20">
+                    <input type="password" id="authPassword" placeholder="Password" maxlength="50">
+                    <div class="auth-buttons">
+                        <button id="loginBtn" class="btn btn-auth">Login</button>
+                        <button id="registerBtn" class="btn btn-auth">Register</button>
+                    </div>
+                    <div id="authMessage" class="auth-message"></div>
+                </div>
+
+                <div id="loggedInInfo" class="auth-form" style="display:none">
+                    <h3>Welcome, <span id="loggedInName"></span>!</h3>
+                    <div class="skin-section">
+                        <label class="btn btn-skin">
+                            📷 Upload Skin
+                            <input type="file" id="skinUpload" accept="image/*" style="display:none">
+                        </label>
+                        <div id="skinPreview" class="skin-preview"></div>
+                    </div>
+                    <button id="logoutBtn" class="btn btn-auth">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Death Screen Overlay -->
+    <div id="deathOverlay" class="overlay" style="display:none">
+        <div class="menu-container death-screen">
+            <h2>💀 You were eaten!</h2>
+            <p id="deathInfo"></p>
+            <p id="deathScore"></p>
+            <button id="respawnBtn" class="btn btn-play">▶ Play Again</button>
+        </div>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud" style="display:none">
+        <div id="leaderboard" class="leaderboard">
+            <h3>🏆 Leaderboard</h3>
+            <ol id="leaderboardList"></ol>
+        </div>
+        <div id="scoreDisplay" class="score-display">Score: 0</div>
+        <div id="minimapContainer" class="minimap-container">
+            <canvas id="minimap" width="150" height="150"></canvas>
+        </div>
+    </div>
+
+    <script src="ui.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
