@@ -1,0 +1,7 @@
+target/
+data/game.db
+.git/
+.github/
+*.tar.gz
+*.zip
+README.md

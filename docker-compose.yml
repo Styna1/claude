@@ -1,0 +1,12 @@
+services:
+  agario:
+    build: .
+    image: ghcr.io/${GITHUB_REPOSITORY:-agario-clone}:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - game-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  game-data:
